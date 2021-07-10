@@ -6,6 +6,19 @@ export const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'jobseeker-home',
+      },
+      {
+        path: 'jobseeker-home',
+        data: { page: 'jobseeker-home' },
+        loadChildren: () =>
+          import('@app/jobseeker-home/jobseeker-home.module').then((m) => m.JobseekerHomeModule),
+      }
+    ]
   }
 ]
 
