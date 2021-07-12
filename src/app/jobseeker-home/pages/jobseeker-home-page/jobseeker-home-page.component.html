@@ -1,1 +1,126 @@
-<p>jobseeker-home-page works!</p>
+<div>
+  <button mat-button>Basic</button>
+  <button mat-button color="primary">Primary</button>
+  <button mat-button color="accent">Accent</button>
+  <button mat-button color="warn">Warn</button>
+  <button mat-button disabled>Disabled</button>
+  <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+</div>
+<div>
+  <button mat-flat-button>Basic</button>
+  <button mat-flat-button color="primary">Primary</button>
+  <button mat-flat-button color="accent">Accent</button>
+  <button mat-flat-button color="warn">Warn</button>
+  <button mat-flat-button disabled>Disabled</button>
+  <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+</div>
+
+<app-checkbox value="Default checkbox"></app-checkbox>
+
+<app-checkbox
+  value="Checkbox with amount"
+  amount="2314"
+></app-checkbox>
+
+<app-checkbox
+  value="Disabled"
+  [disabled]="true"
+></app-checkbox>
+
+<app-checkbox
+  value="Disabled and checked"
+  [checked]="true"
+  [disabled]="true"
+></app-checkbox>
+
+<mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+<div>
+  <mat-radio-group aria-label="Select an option">
+    <app-radio-button valueId="1" value="Radio button 1"></app-radio-button>
+    <app-radio-button valueId="2" value="Radio button 2"></app-radio-button>
+    <app-radio-button
+      valueId="2"
+      value="Radio button with amount"
+      amount="1432"
+    ></app-radio-button>
+  </mat-radio-group>
+</div>
+
+<mat-form-field appearance="outline">
+  <mat-label>What</mat-label>
+  <input matInput type="number">
+  <app-svg-icon
+    matPrefix
+    width="8"
+    height="14"
+    icon="dollar"
+  ></app-svg-icon>
+</mat-form-field>
+
+<div class="chips">
+  <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip
+      *ngFor="let category of categories"
+      [removable]="removable"
+      (removed)="remove(category)">
+      {{ category }}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+  <mat-form-field appearance="outline">
+    <input
+      placeholder="Search category"
+      matInput
+      #fruitInput
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [formControl]="fruitCtrl"
+      (matChipInputTokenEnd)="add($event)">
+
+    <mat-icon
+      matPrefix
+      inline="true"
+      aria-hidden="false"
+      aria-label="search"
+    >
+      search
+    </mat-icon>
+
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let category of filteredCategories | async" [value]="category">
+        {{ category }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+
+<mat-accordion
+  displayMode="flat"
+  multi
+>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Job Type
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div>
+      <app-checkbox
+        value="One time"
+        amount="23251"
+      ></app-checkbox>
+      <app-checkbox
+        value="Part time"
+        amount="1702"
+        [checked]="true"
+      ></app-checkbox>
+      <app-checkbox
+        value="Full time"
+        amount="21975"
+      ></app-checkbox>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

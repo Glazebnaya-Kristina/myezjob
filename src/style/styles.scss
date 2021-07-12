@@ -1,13 +1,12 @@
+@import 'variables';
+@import 'mixins';
 @import 'destyle';
 @import 'destyle-custom';
+@import 'theme-custom';
+@import 'mat-custom';
 
-//html {
-//  height: 100%;
-//  height: -webkit-fill-available;
-//  scroll-behavior: smooth;
-//}
-//
-//body {
-//  height: 100vh;
-//  min-height: -webkit-fill-available;
-//}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  @include font-primary(false, $text-color-quaternary, 300);
+}
