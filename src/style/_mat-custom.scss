@@ -1,0 +1,204 @@
+.mat-body p, .mat-body-1 p, .mat-typography p {
+  margin: 0;
+}
+
+// form-field
+.mat-form-field {
+  @include font-primary(false, false, 300);
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-input-element {
+    margin: 0;
+    width: 100%;
+    flex: 1;
+  }
+
+  .mat-icon {
+    width: auto;
+    height: auto;
+  }
+
+  .mat-form-field-prefix {
+    margin-right: 12px;
+    color: $text-color-tertiary;
+    transition: color $time-transition;
+  }
+
+  .mat-form-field-prefix .mat-icon,
+  .mat-form-field-suffix .mat-icon {
+    font-size: 100%;
+  }
+
+  .mat-form-field-infix {
+    width: auto;
+    padding: 18px 0 16px;
+    border-top: 0;
+  }
+
+  .mat-form-field-label-wrapper {
+    top: -7px;
+    padding-top: 0;
+  }
+
+  .mat-form-field-label {
+    @include font-primary(false, $text-color-secondary);
+  }
+
+  &.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label,
+  .mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    transform:translateY(-1.3em) scale(0.75);
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-prefix,
+  &.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 2px;
+  }
+
+  &.mat-form-field-appearance-outline.mat-focused {
+    .mat-form-field-prefix {
+      color: $svg-color-active;
+    }
+    .mat-form-field-outline-thick {
+      color: $border-color;
+      box-shadow: 0 1px 2px rgba($box-shadow-color-dark, 0.15);
+      border-radius: 4px;
+    }
+  }
+
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-start,
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-end,
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-gap {
+    border-width: 1px;
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $border-color;
+  }
+}
+
+// slide-toggle
+.mat-slide-toggle {
+  .mat-slide-toggle-bar {
+    margin-right: 12px;
+    width: 24px;
+    height: 10px;
+  }
+
+  .mat-slide-toggle-thumb-container,
+  .mat-slide-toggle-thumb {
+    width: 14px;
+    height: 14px;
+  }
+
+  .mat-slide-toggle-thumb-container {
+    top: -2px;
+  }
+
+  .mat-slide-toggle-thumb {
+    box-shadow: 0 2px 4px rgba($box-shadow-color-dark, 0.3);
+  }
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: $background-slide-toggle-checked;
+}
+
+// chip
+.mat-chip {
+  .mat-chip-trailing-icon.mat-icon,
+  .mat-chip-remove.mat-icon {
+    font-size: 14px;
+    color: $color-attract-attention;
+  }
+
+  &.mat-standard-chip {
+    background-color: $chip-background-primary;
+  }
+
+  &.mat-standard-chip {
+    min-height: 25px;
+  }
+
+  &.mat-standard-chip {
+    @include font-primary(14px, false, 300);
+    .mat-chip-remove {
+      opacity: 1;
+
+      &.mat-icon {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  &.mat-standard-chip.mat-chip-with-trailing-icon {
+    padding-top: 7px;
+    padding-right: 8px;
+    padding-bottom: 7px;
+    padding-left: 8px;
+  }
+}
+
+// accordion
+.mat-accordion {
+  &.mat-accordion-multi {
+    .mat-expansion-panel {
+      box-shadow: none;
+      color: inherit;
+
+      &:first-of-type,
+      &:last-of-type {
+        border-radius: initial;
+      }
+
+      &.mat-expanded {
+        border-bottom: 1px solid $border-color;
+      }
+
+      .mat-expansion-panel-header {
+        &.mat-focus-indicator {
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  .mat-expansion-panel-header {
+    padding: 0;
+    height: auto;
+    min-height: 30px;
+  }
+
+  .mat-expansion-panel-header-title {
+    @include font-primary(14px, $text-color-secondary, 300);
+  }
+
+  .mat-expansion-panel-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mat-expansion-indicator {
+    padding: 0 1px;
+
+    &:after {
+      border-width: 0 1px 1px 0;
+      padding: 2px;
+    }
+  }
+
+  .mat-expansion-panel-content {
+    font: inherit;
+  }
+}
