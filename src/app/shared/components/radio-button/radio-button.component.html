@@ -1,0 +1,10 @@
+<div class="radio-button">
+  <mat-radio-button
+    class="radio-button__item"
+    [value]="valueId"
+    [disabled]="disabled"
+  >
+    {{ value }}
+  </mat-radio-button>
+  <span *ngIf="amount" class="radio-button__amount">({{ amount }})</span>
+</div>

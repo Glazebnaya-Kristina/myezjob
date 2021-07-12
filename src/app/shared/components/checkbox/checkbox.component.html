@@ -1,0 +1,11 @@
+<div class="checkbox">
+  <mat-checkbox
+    class="checkbox__item"
+    [checked]="checked"
+    [disabled]="disabled"
+  >
+    {{ value }}
+  </mat-checkbox>
+  <span *ngIf="amount" class="checkbox__amount">({{ amount }})</span>
+</div>
+
