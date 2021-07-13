@@ -1,3 +1,22 @@
 <header class="side-filter-header">
-
+  <button
+    mat-icon-button aria-label="Back"
+    (click)="onReturn()"
+  >
+    иконка
+<!--    <mat-icon-->
+<!--      inline="true"-->
+<!--      aria-hidden="false"-->
+<!--      aria-label="arrow-left"-->
+<!--    >-->
+<!--      arrow-left-->
+<!--    </mat-icon>-->
+  </button>
+  <h2 class="side-filter-header__title">{{ title }}</h2>
+  <button
+    class="side-filter-header__button"
+    (click)="onClear()"
+  >
+    Clear all
+  </button>
 </header>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-side-filter-header',
@@ -7,10 +7,19 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideFilterHeaderComponent implements OnInit {
+  @Input() title: string;
+  @Output() cleared = new EventEmitter<any>();
+  @Output() returned = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onClear() {
+    this.cleared.emit();
   }
 
+  onReturn() {
+    this.returned.emit();
+  }
 }

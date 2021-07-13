@@ -1,3 +1,22 @@
+@import 'src/style/variables';
+@import 'src/style/mixins';
+
 :host {
   display: block;
+}
+
+.side-filter-header {
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba($box-shadow-color-dark, 0.15);
+
+  &__button {
+    @include font-primary(14px, $text-color-secondary, 300);
+  }
+
+  &__title {
+    @include font-primary(20px, $text-color-quinary, 400);
+  }
 }
