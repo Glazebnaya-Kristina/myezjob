@@ -1,3 +1,71 @@
+@import 'src/style/variables';
+@import 'src/style/mixins';
+
 :host {
   display: block;
+}
+
+.side-filter-form {
+  $this: &;
+
+  &__content {
+    padding: $padding-default;
+  }
+
+  &__fieldset {
+    @include font-primary(14px, $text-color-secondary, 300);
+    &:not(:first-of-type){
+      padding-top: 25px;
+      margin-top: 25px;
+      border-top: 1px solid $border-color;
+    }
+
+    &:last-of-type {
+      padding-top: 0;
+      border: none;
+    }
+  }
+
+  &__field {
+    display: block;
+    &:first-of-type {
+      margin-top: 25px;
+    }
+    &:last-of-type {
+      margin-top: 12px;
+    }
+  }
+
+  &__chip-list {
+    margin-top: 12px;
+    display: block;
+  }
+
+  &__toggle {
+    margin-top: 25px;
+  }
+
+  &__range {
+    position: relative;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+
+    &:after {
+      content: "";
+      order: 1;
+      margin: 0 12px;
+      display: block;
+      width: 10px;
+      height: 1px;
+      background-color: $border-color-secondary;
+    }
+  }
+
+  &__range-field {
+    max-width: 85px;
+    &:not(:first-of-type) {
+      order: 2;
+    }
+  }
 }
