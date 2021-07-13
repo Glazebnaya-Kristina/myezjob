@@ -28,9 +28,12 @@ export class SideFilterFormComponent implements OnInit {
 
   public form: FormGroup;
 
-  get f() {return this.form.controls;}
+  get f() {
+    return this.form.controls;
+  }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.initForm();
@@ -77,24 +80,25 @@ export class SideFilterFormComponent implements OnInit {
   }
 
   private customFilter(value: string, arr: string[]): string[] {
-    let result = this.filtersAll(value, arr);
-    return result.length ? result : ['None'];
+    return this.filtersAll(value, arr);
   }
 
   private filtersAll(value: string, arr: string[]): string[] {
-    let filterValue = value.toLowerCase();
-    return arr.filter(itemArr => itemArr[0].toLowerCase().includes(filterValue));
+    if (value !== null) {
+      let filterValue = value.toLowerCase();
+      return arr.filter(itemArr => itemArr[0].toLowerCase().includes(filterValue));
+    }
   }
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    if (value) {
+    if (!this.categories.includes(value) && value) {
       this.categories.push(value);
     }
 
     event.chipInput.clear();
-    this.f.category.setValue(null);
+    this.f.category.setValue('');
   }
 
   onRemove(category: string): void {
@@ -102,8 +106,10 @@ export class SideFilterFormComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.categories.push(event.option.viewValue);
-    this.f.category.setValue(null);
+    if (!this.categories.includes(event.option.viewValue)) {
+      this.categories.push(event.option.viewValue);
+      this.f.category.setValue(null);
+    }
   }
 
   onSubmit() {
