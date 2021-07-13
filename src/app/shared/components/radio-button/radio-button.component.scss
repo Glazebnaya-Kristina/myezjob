@@ -1,4 +1,5 @@
 @import 'src/style/variables';
+@import 'src/style/mixins';
 
 :host {
   display: block;
@@ -6,9 +7,12 @@
 
 .radio-button {
   $this: &;
+  display: flex;
+  align-items: center;
 
   &__amount {
     margin-left: 8px;
+    @include font-primary(16px);
 
     &.is-disabled {
       opacity: 0.5;
@@ -34,7 +38,7 @@
 
     .mat-radio-label-content {
       padding-left: 12px;
-      line-height: 24px;
+      @include font-primary(16px, false, false, 24px);
     }
 
     &.mat-radio-checked .mat-radio-inner-circle {

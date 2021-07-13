@@ -1,4 +1,5 @@
 @import 'src/style/variables';
+@import 'src/style/mixins';
 
 :host {
   display: block;
@@ -6,9 +7,12 @@
 
 .checkbox {
   $this: &;
+  display: flex;
+  align-items: center;
 
   &__amount {
     margin-left: 8px;
+    @include font-primary(16px);
 
     &.is-disabled {
       opacity: 0.5;
@@ -39,6 +43,10 @@
     .mat-checkbox-disabled.mat-checkbox-indeterminate
     .mat-checkbox-frame {
       border: none;
+    }
+
+    .mat-checkbox-label {
+      @include font-primary(16px);
     }
   }
 

@@ -92,7 +92,7 @@
       </mat-form-field>
     </fieldset>
 
-    <fieldset class="side-filter-form__fieldset">
+    <fieldset class="side-filter-form__fieldset side-filter-form__fieldset--accordion">
       <h3 class="side-filter-form__legend" hidden>Group filters</h3>
       <mat-accordion displayMode="flat" multi>
         <mat-expansion-panel [expanded]="true">
@@ -101,15 +101,18 @@
           </mat-expansion-panel-header>
 
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="One time"
             amount="23251"
           ></app-checkbox>
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="Part time"
             amount="1702"
             [checked]="true"
           ></app-checkbox>
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="Full time"
             amount="21975"
           ></app-checkbox>
@@ -125,16 +128,19 @@
           </mat-expansion-panel-header>
 
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="Beginner"
             amount="32312"
             [checked]="true"
             [disabled]="true"
           ></app-checkbox>
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="Intermediate"
             amount="1702"
           ></app-checkbox>
           <app-checkbox
+            class="side-filter-form__checkbox"
             value="Expert"
             amount="975"
           ></app-checkbox>
@@ -147,22 +153,26 @@
 
           <mat-radio-group aria-label="Payment type">
             <app-radio-button
+              class="side-filter-form__radio"
               valueId="1"
               value="Hourly"
               amount="23251"
             ></app-radio-button>
             <app-radio-button
+              class="side-filter-form__radio"
               valueId="2"
               value="Budget"
               amount="1702"
               [checked]="true"
             ></app-radio-button>
             <app-radio-button
+              class="side-filter-form__radio"
               valueId="1"
               value="Salary"
               amount="21975"
             ></app-radio-button>
             <app-radio-button
+              class="side-filter-form__radio"
               valueId="1"
               value="No Reward"
               amount="21975"
@@ -192,8 +202,11 @@
               <mat-icon matPrefix svgIcon="dollar"></mat-icon>
             </mat-form-field>
           </div>
-          <mat-slide-toggle class="side-filter-form__toggle" [checked]="true">
-            I’m looking for Intern
+          <mat-slide-toggle
+            class="side-filter-form__toggle side-filter-form__toggle--rate"
+            [checked]="true"
+          >
+            Interval rate
           </mat-slide-toggle>
         </mat-expansion-panel>
       </mat-accordion>

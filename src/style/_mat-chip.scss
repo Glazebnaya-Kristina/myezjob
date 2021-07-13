@@ -6,15 +6,9 @@
   }
 
   &.mat-standard-chip {
-    background-color: $chip-background-primary;
-  }
-
-  &.mat-standard-chip {
     min-height: 25px;
-  }
-
-  &.mat-standard-chip {
     @include font-primary(14px, false, 300);
+    background-color: $chip-background-primary;
     .mat-chip-remove {
       opacity: 1;
 
@@ -23,12 +17,12 @@
         height: 14px;
       }
     }
-  }
 
-  &.mat-standard-chip.mat-chip-with-trailing-icon {
-    padding-top: 7px;
-    padding-right: 8px;
-    padding-bottom: 7px;
-    padding-left: 8px;
+    &.mat-chip-with-trailing-icon {
+      padding-top: 7px;
+      padding-right: 8px;
+      padding-bottom: 7px;
+      padding-left: 8px;
+    }
   }
 }

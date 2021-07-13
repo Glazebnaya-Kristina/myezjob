@@ -1,6 +1,6 @@
 .mat-form-field {
   width: 100%;
-  @include font-primary(false, false, 300);
+  @include font-primary(16px, false, 300);
 
   .mat-form-field-wrapper {
     padding-bottom: 0;
@@ -43,8 +43,17 @@
     @include font-primary(false, $text-color-secondary);
   }
 
-  &.mat-form-field-appearance-outline .mat-form-field-wrapper {
-    margin: 0;
+  &.mat-form-field-appearance-outline {
+    .mat-form-field-wrapper {
+      margin: 0;
+    }
+    .mat-form-field-outline-start {
+      border-radius: 4px 0 0 4px;
+    }
+
+    .mat-form-field-outline-end {
+      border-radius: 0 4px 4px 0;
+    }
   }
 
   &.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float

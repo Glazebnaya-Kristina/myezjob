@@ -1,8 +1,12 @@
 .mat-slide-toggle {
   .mat-slide-toggle-bar {
-    margin-right: 12px;
-    width: 24px;
+    margin-right: 16px;
+    width: 20px;
     height: 10px;
+  }
+
+  &.mat-checked .mat-slide-toggle-bar .mat-slide-toggle-thumb-container {
+    transform: translate3d(11px, 0, 0);
   }
 
   .mat-slide-toggle-thumb-container,
@@ -13,6 +17,10 @@
 
   .mat-slide-toggle-thumb-container {
     top: -2px;
+  }
+
+  .mat-slide-toggle-content {
+    @include font-primary(16px);
   }
 
   .mat-slide-toggle-thumb {

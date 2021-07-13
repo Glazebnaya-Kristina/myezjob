@@ -9,20 +9,24 @@
   $this: &;
 
   &__content {
-    padding: $padding-default;
+    padding: $indentation-default;
   }
 
   &__fieldset {
     @include font-primary(14px, $text-color-secondary, 300);
-    &:not(:first-of-type){
-      padding-top: 25px;
-      margin-top: 25px;
+    &:not(:first-of-type):not(#{$this}__fieldset--accordion) {
+      padding-top: $indentation-default;
+      margin-top: 23px;
       border-top: 1px solid $border-color;
     }
 
     &:last-of-type {
       padding-top: 0;
       border: none;
+    }
+
+    &--accordion {
+      margin-top: 16px;
     }
   }
 
@@ -36,18 +40,29 @@
     }
   }
 
+  &__checkbox,
+  &__radio {
+    &:not(&:first-of-type) {
+      margin-top: 12px;
+    }
+  }
+
   &__chip-list {
     margin-top: 12px;
     display: block;
   }
 
   &__toggle {
-    margin-top: 25px;
+    margin-top: 24px;
+
+    &--rate {
+      margin-top: 12px;
+    }
   }
 
   &__range {
     position: relative;
-    margin-top: 12px;
+    margin-top: 2px;
     display: flex;
     align-items: center;
 
@@ -63,7 +78,7 @@
   }
 
   &__range-field {
-    max-width: 85px;
+    max-width: 87px;
     &:not(:first-of-type) {
       order: 2;
     }
