@@ -1,0 +1,87 @@
+.mat-form-field {
+  width: 100%;
+  @include font-primary(false, false, 300);
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-input-element {
+    margin: 0;
+    width: 100%;
+    flex: 1;
+  }
+
+  .mat-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .mat-form-field-prefix {
+    margin-right: 12px;
+    color: $text-color-tertiary;
+    transition: color $time-transition;
+  }
+
+  .mat-form-field-prefix .mat-icon,
+  .mat-form-field-suffix .mat-icon {
+    font-size: 100%;
+  }
+
+  .mat-form-field-infix {
+    width: auto;
+    padding: 18px 0 16px;
+    border-top: 0;
+  }
+
+  .mat-form-field-label-wrapper {
+    top: -7px;
+    padding-top: 0;
+  }
+
+  .mat-form-field-label {
+    @include font-primary(false, $text-color-secondary);
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
+  }
+
+  &.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label,
+  .mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+    transform:translateY(-1.3em) scale(0.75);
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-prefix,
+  &.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 2px;
+  }
+
+  &.mat-form-field-appearance-outline.mat-focused {
+    .mat-form-field-prefix {
+      color: $svg-color-active;
+    }
+    .mat-form-field-outline-thick {
+      color: $border-color;
+      box-shadow: 0 1px 2px rgba($box-shadow-color-dark, 0.15);
+      border-radius: 4px;
+    }
+  }
+
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-start,
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-end,
+  &.mat-form-field-appearance-outline
+  .mat-form-field-outline-thick
+  .mat-form-field-outline-gap {
+    border-width: 1px;
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: $border-color;
+  }
+}

@@ -1,20 +1,18 @@
 <header class="side-filter-header">
   <button
-    mat-icon-button aria-label="Back"
+    class="side-filter-header__button-return"
+    type="button"
     (click)="onReturn()"
   >
-    иконка
-<!--    <mat-icon-->
-<!--      inline="true"-->
-<!--      aria-hidden="false"-->
-<!--      aria-label="arrow-left"-->
-<!--    >-->
-<!--      arrow-left-->
-<!--    </mat-icon>-->
+    <mat-icon
+      class="side-filter-header__icon"
+      svgIcon="arrow-left"
+    ></mat-icon>
   </button>
   <h2 class="side-filter-header__title">{{ title }}</h2>
   <button
     class="side-filter-header__button"
+    type="reset"
     (click)="onClear()"
   >
     Clear all

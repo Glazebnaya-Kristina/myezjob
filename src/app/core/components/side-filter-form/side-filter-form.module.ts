@@ -14,7 +14,6 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatRadioModule} from "@angular/material/radio";
 import {RadioButtonModule} from "@app/shared/components/radio-button/radio-button.module";
 import {MatExpansionModule} from "@angular/material/expansion";
-import {SvgIconModule} from "@app/shared/components/svg-icon/svg-icon.module";
 import {SideFilterFooterModule} from "@app/core/components/side-filter-footer/side-filter-footer.module";
 
 @NgModule({
@@ -37,7 +36,6 @@ import {SideFilterFooterModule} from "@app/core/components/side-filter-footer/si
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    SvgIconModule,
   ],
   exports: [
     SideFilterFormComponent

@@ -1,0 +1,25 @@
+.mat-slide-toggle {
+  .mat-slide-toggle-bar {
+    margin-right: 12px;
+    width: 24px;
+    height: 10px;
+  }
+
+  .mat-slide-toggle-thumb-container,
+  .mat-slide-toggle-thumb {
+    width: 14px;
+    height: 14px;
+  }
+
+  .mat-slide-toggle-thumb-container {
+    top: -2px;
+  }
+
+  .mat-slide-toggle-thumb {
+    box-shadow: 0 2px 4px rgba($box-shadow-color-dark, 0.3);
+  }
+
+  &.mat-checked .mat-slide-toggle-bar {
+    background-color: $background-slide-toggle-checked;
+  }
+}

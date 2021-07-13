@@ -13,21 +13,14 @@
         appearance="outline"
       >
         <input
-          type="text"
           matInput
+          type="text"
           placeholder="What"
           [formControl]="control"
           [matAutocomplete]="auto"
         >
 
-        <mat-icon
-          matPrefix
-          inline="true"
-          aria-hidden="false"
-          aria-label="search"
-        >
-          search
-        </mat-icon>
+        <mat-icon matPrefix svgIcon="search"></mat-icon>
 
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
@@ -48,14 +41,7 @@
           [matAutocomplete]="auto"
         >
 
-        <mat-icon
-          matPrefix
-          inline="true"
-          aria-hidden="false"
-          aria-label="search"
-        >
-          search
-        </mat-icon>
+        <mat-icon matPrefix svgIcon="geotag"></mat-icon>
 
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
@@ -94,16 +80,10 @@
           [matChipInputFor]="chipList"
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
           [formControl]="fruitCtrl"
-          (matChipInputTokenEnd)="add($event)">
-
-        <mat-icon
-          matPrefix
-          inline="true"
-          aria-hidden="false"
-          aria-label="search"
+          (matChipInputTokenEnd)="add($event)"
         >
-          search
-        </mat-icon>
+
+        <mat-icon matPrefix svgIcon="search"></mat-icon>
 
         <mat-autocomplete #autoCategory="matAutocomplete" (optionSelected)="selected($event)">
           <mat-option *ngFor="let category of filteredCategories | async" [value]="category">
@@ -115,11 +95,8 @@
 
     <fieldset class="side-filter-form__fieldset">
       <h3 class="side-filter-form__legend" hidden>Group filters</h3>
-      <mat-accordion
-        displayMode="flat"
-        multi
-      >
-        <mat-expansion-panel>
+      <mat-accordion displayMode="flat" multi>
+        <mat-expansion-panel [expanded]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>Job Type</mat-panel-title>
           </mat-expansion-panel-header>
@@ -143,7 +120,7 @@
           </mat-slide-toggle>
         </mat-expansion-panel>
 
-        <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>Skill level</mat-panel-title>
           </mat-expansion-panel-header>
@@ -194,7 +171,7 @@
           </mat-radio-group>
         </mat-expansion-panel>
 
-        <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>Payment rate</mat-panel-title>
           </mat-expansion-panel-header>
@@ -205,12 +182,7 @@
               appearance="outline"
             >
               <input matInput type="number" placeholder="min">
-              <app-svg-icon
-                matPrefix
-                width="8"
-                height="14"
-                icon="dollar"
-              ></app-svg-icon>
+              <mat-icon matPrefix svgIcon="dollar"></mat-icon>
             </mat-form-field>
 
             <mat-form-field
@@ -218,12 +190,7 @@
               appearance="outline"
             >
               <input matInput type="number" placeholder="max">
-              <app-svg-icon
-                matPrefix
-                width="8"
-                height="14"
-                icon="dollar"
-              ></app-svg-icon>
+              <mat-icon matPrefix svgIcon="dollar"></mat-icon>
             </mat-form-field>
           </div>
           <mat-slide-toggle class="side-filter-form__toggle" [checked]="true">
