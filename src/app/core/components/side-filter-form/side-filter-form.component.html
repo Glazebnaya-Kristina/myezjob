@@ -62,7 +62,7 @@
         <mat-chip
           *ngFor="let category of categories"
           [removable]="removable"
-          (removed)="remove(category)">
+          (removed)="onRemove(category)">
           {{ category }}
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
@@ -75,11 +75,10 @@
         <input
           placeholder="Search category"
           matInput
-          #fruitInput
           [matAutocomplete]="autoCategory"
           [matChipInputFor]="chipList"
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          [formControl]="fruitCtrl"
+          [formControl]="categoryControl"
           (matChipInputTokenEnd)="add($event)"
         >
 
