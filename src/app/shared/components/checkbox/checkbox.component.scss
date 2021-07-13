@@ -5,8 +5,14 @@
 }
 
 .checkbox {
+  $this: &;
+
   &__amount {
     margin-left: 8px;
+
+    &.is-disabled {
+      opacity: 0.5;
+    }
   }
 
   &::ng-deep {
@@ -33,6 +39,14 @@
     .mat-checkbox-disabled.mat-checkbox-indeterminate
     .mat-checkbox-frame {
       border: none;
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+
+    #{$this}__item {
+      pointer-events: none;
     }
   }
 }

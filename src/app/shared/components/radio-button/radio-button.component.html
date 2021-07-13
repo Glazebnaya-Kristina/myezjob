@@ -1,4 +1,7 @@
-<div class="radio-button">
+<div
+  class="radio-button"
+  [class.is-disabled]="disabled"
+>
   <mat-radio-button
     class="radio-button__item"
     [value]="valueId"
@@ -7,5 +10,11 @@
   >
     {{ value }}
   </mat-radio-button>
-  <span *ngIf="amount" class="radio-button__amount">({{ amount }})</span>
+  <span
+    *ngIf="amount"
+    class="radio-button__amount"
+    [class.is-disabled]="disabled"
+  >
+    ({{ amount }})
+  </span>
 </div>
