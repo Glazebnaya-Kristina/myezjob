@@ -34,8 +34,8 @@ import {SideFilterFooterModule} from "@app/core/components/side-filter-footer/si
     MatSlideToggleModule,
     MatRadioModule,
     RadioButtonModule,
-    MatChipsModule,
     MatAutocompleteModule,
+    MatChipsModule,
     MatExpansionModule,
   ],
   exports: [

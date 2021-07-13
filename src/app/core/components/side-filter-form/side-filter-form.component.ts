@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith, switchMap} from 'rxjs/operators';
+import {map, startWith} from 'rxjs/operators';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
@@ -16,6 +16,7 @@ import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 })
 
 export class SideFilterFormComponent implements OnInit {
+  public separatorKeysCodes: number[] = [ENTER, COMMA];
   public filteredProfession$: Observable<string[]>;
   public filteredCities$: Observable<string[]>;
   public filteredCategories$: Observable<string[]>;
@@ -23,8 +24,6 @@ export class SideFilterFormComponent implements OnInit {
   public cities: string[] = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia'];
   public allCategories: string[] = ['Teacher', 'Doctor', 'Dentist', 'Trainer', 'Footballer'];
   public categories: string[] = ['Teacher'];
-  public separatorKeysCodes: number[] = [ENTER, COMMA];
-  public removable = true;
 
   public form: FormGroup;
 
@@ -80,10 +79,6 @@ export class SideFilterFormComponent implements OnInit {
   }
 
   private customFilter(value: string, arr: string[]): string[] {
-    return this.filtersAll(value, arr);
-  }
-
-  private filtersAll(value: string, arr: string[]): string[] {
     if (value !== null) {
       let filterValue = value.toLowerCase();
       return arr.filter(itemArr => itemArr[0].toLowerCase().includes(filterValue));
