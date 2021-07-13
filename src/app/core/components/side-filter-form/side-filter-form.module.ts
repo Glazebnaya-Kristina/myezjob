@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {SideFilterFormComponent} from './side-filter-form.component';
 import {SideFilterHeaderModule} from '@app/core/components/side-filter-header/side-filter-header.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatChipsModule} from "@angular/material/chips";
@@ -22,6 +22,8 @@ import {SideFilterFooterModule} from "@app/core/components/side-filter-footer/si
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SideFilterHeaderModule,
     SideFilterFooterModule,
     MatFormFieldModule,
@@ -33,7 +35,6 @@ import {SideFilterFooterModule} from "@app/core/components/side-filter-footer/si
     MatRadioModule,
     RadioButtonModule,
     MatChipsModule,
-    ReactiveFormsModule,
     MatAutocompleteModule,
     MatExpansionModule,
   ],

@@ -1,11 +1,13 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {map, startWith, switchMap} from 'rxjs/operators';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 
+@UntilDestroy()
 @Component({
   selector: 'app-side-filter-form',
   templateUrl: './side-filter-form.component.html',
@@ -14,43 +16,69 @@ import {COMMA, ENTER} from "@angular/cdk/keycodes";
 })
 
 export class SideFilterFormComponent implements OnInit {
-  public filteredStreets: Observable<string[]>;
-  public filteredCategories: Observable<string[]>;
-  public streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
+  public filteredProfession$: Observable<string[]>;
+  public filteredCities$: Observable<string[]>;
+  public filteredCategories$: Observable<string[]>;
+  public professions: string[] = ['Teacher', 'Doctor', 'Dentist', 'Trainer', 'Footballer'];
+  public cities: string[] = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia'];
   public allCategories: string[] = ['Teacher', 'Doctor', 'Dentist', 'Trainer', 'Footballer'];
   public categories: string[] = ['Teacher'];
   public separatorKeysCodes: number[] = [ENTER, COMMA];
   public removable = true;
 
-  public categoryControl = new FormControl();
-  public control = new FormControl();
+  public form: FormGroup;
+
+  get f() {return this.form.controls;}
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.filtersStreets();
+    this.initForm();
+    this.filterWhere();
+    this.filtersStreetsWhat();
     this.filtersCategories();
   }
 
-  private filtersStreets(): void {
-    this.filteredStreets = this.control.valueChanges.pipe(
+  initForm(): void {
+    this.form = this.fb.group({
+      what: [null],
+      where: [null],
+      category: [null],
+    });
+  }
+
+  private filtersStreetsWhat(): void {
+    this.filteredProfession$ = this.f.what.valueChanges.pipe(
+      untilDestroyed(this),
       startWith(''),
-      map((street: string) => {
-        return this.customFilter(street, this.streets);
-      })
-    );
+      map((profession: string) => {
+          return this.customFilter(profession, this.professions)
+        }
+      ))
+  }
+
+  private filterWhere(): void {
+    this.filteredCities$ = this.f.where.valueChanges.pipe(
+      untilDestroyed(this),
+      startWith(''),
+      map((city: string) => {
+          return this.customFilter(city, this.cities)
+        }
+      ))
   }
 
   private filtersCategories(): void {
-    this.filteredCategories = this.categoryControl.valueChanges.pipe(
+    this.filteredCategories$ = this.f.category.valueChanges.pipe(
       startWith(''),
       map((category: string) => {
-        return this.customFilter(category, this.allCategories);
-      })
-    );
+          return this.customFilter(category, this.allCategories)
+        }
+      ))
   }
 
   private customFilter(value: string, arr: string[]): string[] {
-    let resultStreets = this.filtersAll(value, arr);
-    return resultStreets.length ? resultStreets : ['None'];
+    let result = this.filtersAll(value, arr);
+    return result.length ? result : ['None'];
   }
 
   private filtersAll(value: string, arr: string[]): string[] {
@@ -66,7 +94,7 @@ export class SideFilterFormComponent implements OnInit {
     }
 
     event.chipInput.clear();
-    this.categoryControl.setValue(null);
+    this.f.category.setValue(null);
   }
 
   onRemove(category: string): void {
@@ -75,19 +103,19 @@ export class SideFilterFormComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.categories.push(event.option.viewValue);
-    this.categoryControl.setValue(null);
+    this.f.category.setValue(null);
   }
 
   onSubmit() {
-  //  submit form
+    //  submit form
   }
 
   onClear() {
-  //  clear field in form
+    //  clear field in form
   }
 
   onCancel() {
-  //  cancel fill form
+    //  cancel fill form
   }
 
   onReturn() {

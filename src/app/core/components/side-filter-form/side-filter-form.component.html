@@ -1,4 +1,8 @@
-<form class="side-filter-form">
+<form
+  class="side-filter-form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
   <app-side-filter-header
     title="Filters"
     (returned)="onReturn()"
@@ -16,15 +20,15 @@
           matInput
           type="text"
           placeholder="What"
-          [formControl]="control"
-          [matAutocomplete]="auto"
+          [matAutocomplete]="whatSelect"
+          formControlName="what"
         >
 
         <mat-icon matPrefix svgIcon="search"></mat-icon>
 
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-            {{street}}
+        <mat-autocomplete #whatSelect="matAutocomplete">
+          <mat-option *ngFor="let profession of filteredProfession$ | async" [value]="profession">
+            {{ profession }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -37,15 +41,15 @@
           type="text"
           matInput
           placeholder="Where"
-          [formControl]="control"
-          [matAutocomplete]="auto"
+          [matAutocomplete]="whereSelect"
+          formControlName="where"
         >
 
         <mat-icon matPrefix svgIcon="geotag"></mat-icon>
 
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let street of filteredStreets | async" [value]="street">
-            {{street}}
+        <mat-autocomplete #whereSelect="matAutocomplete">
+          <mat-option *ngFor="let city of filteredCities$ | async" [value]="city">
+            {{ city }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -78,14 +82,14 @@
           [matAutocomplete]="autoCategory"
           [matChipInputFor]="chipList"
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          [formControl]="categoryControl"
           (matChipInputTokenEnd)="add($event)"
+          formControlName="category"
         >
 
         <mat-icon matPrefix svgIcon="search"></mat-icon>
 
         <mat-autocomplete #autoCategory="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let category of filteredCategories | async" [value]="category">
+          <mat-option *ngFor="let category of filteredCategories$ | async" [value]="category">
             {{ category }}
           </mat-option>
         </mat-autocomplete>
