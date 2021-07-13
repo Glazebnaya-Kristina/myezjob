@@ -10,6 +10,7 @@ export class RadioButtonComponent implements OnInit {
   @Input() value: string;
   @Input() valueId: string;
   @Input() amount: string;
+  @Input() checked: boolean;
   @Input() disabled: any;
 
   constructor() { }
