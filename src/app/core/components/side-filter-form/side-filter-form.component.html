@@ -78,16 +78,16 @@
         <input
           placeholder="Search category"
           matInput
-          formControlName="category"
           [matAutocomplete]="autoCategory"
           [matChipInputFor]="chipList"
           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          (matChipInputTokenEnd)="add($event)"
+          (matChipInputTokenEnd)="onAdd($event)"
+          formControlName="category"
         >
 
         <mat-icon matPrefix svgIcon="search"></mat-icon>
 
-        <mat-autocomplete #autoCategory="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-autocomplete #autoCategory="matAutocomplete" (optionSelected)="onSelect($event)">
           <mat-option *ngFor="let category of filteredCategories$ | async" [value]="category">
             {{ category }}
           </mat-option>

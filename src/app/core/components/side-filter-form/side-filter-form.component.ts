@@ -85,8 +85,9 @@ export class SideFilterFormComponent implements OnInit {
     }
   }
 
-  add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
+  onAdd(event: MatChipInputEvent): void {
+    let value = (event.value || '').trim();
+    value = this.transformUpperCase(value);
 
     if (!this.categories.includes(value) && value) {
       this.categories.push(value);
@@ -100,11 +101,15 @@ export class SideFilterFormComponent implements OnInit {
     this.categories = this.categories.filter(item => item !== category);
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
+  onSelect(event: MatAutocompleteSelectedEvent): void {
     if (!this.categories.includes(event.option.viewValue)) {
       this.categories.push(event.option.viewValue);
-      this.f.category.setValue(null);
     }
+    this.f.category.setValue('');
+  }
+
+  private transformUpperCase(str): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   onSubmit() {
