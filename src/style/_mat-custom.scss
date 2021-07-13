@@ -181,6 +181,12 @@
       }
     }
   }
+
+  .mat-expansion-panel:last-of-type {
+    .mat-expansion-panel-body {
+      padding-bottom: 0;
+    }
+  }
   .mat-expansion-panel-header {
     padding: 0;
     height: auto;
@@ -194,10 +200,6 @@
   .mat-expansion-panel-body {
     padding-left: 0;
     padding-right: 0;
-
-    &:last-of-type {
-      padding-bottom: 0;
-    }
   }
 
   .mat-expansion-indicator {
