@@ -4,6 +4,7 @@
 
 // form-field
 .mat-form-field {
+  width: 100%;
   @include font-primary(false, false, 300);
 
   .mat-form-field-wrapper {
@@ -45,6 +46,10 @@
 
   .mat-form-field-label {
     @include font-primary(false, $text-color-secondary);
+  }
+
+  &.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0;
   }
 
   &.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
@@ -154,7 +159,6 @@
   &.mat-accordion-multi {
     .mat-expansion-panel {
       box-shadow: none;
-      color: inherit;
 
       &:first-of-type,
       &:last-of-type {
@@ -162,7 +166,10 @@
       }
 
       &.mat-expanded {
-        border-bottom: 1px solid $border-color;
+        overflow: visible;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid $border-color;
+        }
       }
 
       .mat-expansion-panel-header {
@@ -187,6 +194,10 @@
   .mat-expansion-panel-body {
     padding-left: 0;
     padding-right: 0;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
 
   .mat-expansion-indicator {
@@ -201,4 +212,11 @@
   .mat-expansion-panel-content {
     font: inherit;
   }
+}
+
+// button
+.mat-button.mat-button-base,
+.mat-flat-button.mat-button-base {
+  min-width: 94px;
+  line-height: 33px;
 }

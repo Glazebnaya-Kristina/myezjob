@@ -15,12 +15,14 @@ $text-color-primary:                            $_white;
 $text-color-secondary:                          $_gull-gray;
 $text-color-tertiary:                           $_tower-gray;
 $text-color-quaternary:                         $_river-bed;
+$text-color-quinary:                            $_ebony-clay;
 
 $background-interactive-primary:                $_dodger-blue;
 $background-interactive-primary-disabled:       rgba( $_dodger-blue, 0.5 );
 $background-interactive-secondary:              $_alice-blue;
 
 $border-color:                                  $_geyser;
+$border-color-secondary:                        $_gull-gray;
 $border-interactive-primary-disabled:           rgba( $_dodger-blue, 0.5 );
 
 
@@ -35,3 +37,5 @@ $box-shadow-color-dark:                         $_black;
 $svg-color-active:                              $_ebony-clay;
 
 $time-transition:                               0.2s;
+
+$padding-default:                               25px;

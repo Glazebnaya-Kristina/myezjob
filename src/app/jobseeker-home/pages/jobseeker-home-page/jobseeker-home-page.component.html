@@ -1,4 +1,4 @@
-<div>
+<div style="margin-top: 20px">
   <button mat-button>Basic</button>
   <button mat-button color="primary">Primary</button>
   <button mat-button color="accent">Accent</button>
@@ -6,7 +6,8 @@
   <button mat-button disabled>Disabled</button>
   <a mat-button href="https://www.google.com/" target="_blank">Link</a>
 </div>
-<div>
+
+<div style="margin-top: 20px">
   <button mat-flat-button>Basic</button>
   <button mat-flat-button color="primary">Primary</button>
   <button mat-flat-button color="accent">Accent</button>
@@ -15,6 +16,7 @@
   <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
 </div>
 
+<div style="margin-top: 20px">
 <app-checkbox value="Default checkbox"></app-checkbox>
 
 <app-checkbox
@@ -32,10 +34,11 @@
   [checked]="true"
   [disabled]="true"
 ></app-checkbox>
+</div>
 
-<mat-slide-toggle>Slide me!</mat-slide-toggle>
+<mat-slide-toggle style="margin-top: 20px">Slide me!</mat-slide-toggle>
 
-<div>
+<div style="margin-top: 20px">
   <mat-radio-group aria-label="Select an option">
     <app-radio-button valueId="1" value="Radio button 1"></app-radio-button>
     <app-radio-button valueId="2" value="Radio button 2"></app-radio-button>
@@ -47,7 +50,7 @@
   </mat-radio-group>
 </div>
 
-<mat-form-field appearance="outline">
+<mat-form-field appearance="outline" style="margin-top: 20px">
   <mat-label>What</mat-label>
   <input matInput type="number">
   <app-svg-icon
@@ -58,7 +61,8 @@
   ></app-svg-icon>
 </mat-form-field>
 
-<div class="chips">
+
+<div class="chips" style="margin-top: 20px">
   <mat-chip-list #chipList aria-label="Fruit selection">
     <mat-chip
       *ngFor="let category of categories"
@@ -97,10 +101,12 @@
 </div>
 
 <mat-accordion
+  style="margin-top: 20px; display: block"
   displayMode="flat"
+
   multi
 >
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Job Type

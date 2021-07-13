@@ -1,12 +1,15 @@
 :host {
-  display: block;
+  min-height: 100%;
+  display: flex;
 }
 
 .dashboard {
   display: flex;
+  flex: 1;
 
   &__aside {
     width: 100%;
     max-width: 350px;
+    display: flex;
   }
 }

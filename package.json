@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate:svg-sprite": "svg2sprite ./src/assets/svg ./src/assets/sprites/sprite.svg --stripAttrs id"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "destyle.css": "^2.0.2",
     "ng-inline-svg": "^13.0.0",
     "rxjs": "~6.6.0",
+    "svg2sprite-cli": "^2.0.1",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
   },
