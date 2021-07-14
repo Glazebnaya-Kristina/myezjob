@@ -80,8 +80,7 @@ export class SideFilterFormComponent implements OnInit {
 
   private customFilter(value: string, arr: string[]): string[] {
     if (value !== null) {
-      let filterValue = value.toLowerCase();
-      return arr.filter(itemArr => itemArr[0].toLowerCase().includes(filterValue));
+      return arr.filter(itemArr => itemArr[0].toLowerCase().includes(value.toLowerCase()));
     }
   }
 
