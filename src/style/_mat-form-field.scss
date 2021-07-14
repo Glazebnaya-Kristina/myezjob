@@ -10,6 +10,7 @@
     margin: 0;
     width: 100%;
     flex: 1;
+    @include font-primary(false, $text-color-quinary);
   }
 
   .mat-icon {

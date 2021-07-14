@@ -7,3 +7,42 @@
 .mat-body p, .mat-body-1 p, .mat-typography p {
   margin: 0;
 }
+
+
+.mat-autocomplete-panel:not([class*=mat-elevation-z]).mat-autocomplete-visible {
+  box-shadow: 0 1px 2px rgba($box-shadow-color-dark, 0.15);
+  border: 1px solid #CFD8DC;
+}
+
+.mat-autocomplete-panel {
+  padding-top: 6px;
+  .mat-option {
+    padding: 0 12px;
+    height: 36px;
+
+    .mat-icon {
+      margin-right: 9px;
+    }
+  }
+  .mat-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .mat-option-text {
+    color: $text-color-tertiary;
+  }
+}
+
+.cdk-overlay-pane {
+  .mat-autocomplete-panel {
+    margin-top: -2px;
+  }
+
+  &.mat-autocomplete-panel-above {
+    .mat-autocomplete-panel {
+      margin-top: 0;
+      margin-bottom: -6px;
+      box-shadow: 0 -1px 2px rgb($box-shadow-color-dark, 0.15);
+    }
+  }
+}

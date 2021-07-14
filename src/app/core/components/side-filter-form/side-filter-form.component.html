@@ -28,7 +28,7 @@
 
         <mat-autocomplete #whatSelect="matAutocomplete">
           <mat-option *ngFor="let profession of filteredProfession$ | async" [value]="profession">
-            {{ profession }}
+            <mat-icon matPrefix svgIcon="search"></mat-icon> {{ profession }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -49,7 +49,7 @@
 
         <mat-autocomplete #whereSelect="matAutocomplete">
           <mat-option *ngFor="let city of filteredCities$ | async" [value]="city">
-            {{ city }}
+            <mat-icon matPrefix svgIcon="geotag"></mat-icon> {{ city }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
@@ -89,7 +89,7 @@
 
         <mat-autocomplete #autoCategory="matAutocomplete" (optionSelected)="onSelect($event)">
           <mat-option *ngFor="let category of filteredCategories$ | async" [value]="category">
-            {{ category }}
+            <mat-icon matPrefix svgIcon="search"></mat-icon> {{ category }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
