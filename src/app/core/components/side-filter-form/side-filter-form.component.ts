@@ -85,8 +85,7 @@ export class SideFilterFormComponent implements OnInit {
   }
 
   onAdd(event: MatChipInputEvent): void {
-    let value = (event.value || '').trim();
-    value = this.transformUpperCase(value);
+    let value = this.transformUpperCase((event.value || '').trim());
 
     if (!this.categories.includes(value) && value) {
       this.categories.push(value);
